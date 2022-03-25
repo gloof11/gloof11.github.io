@@ -1,4 +1,3 @@
-This challenge is about python sandbox breakouts
 このチャレンジでpythonサンドボックス脱出を使います
 
 ```
