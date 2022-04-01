@@ -7,3 +7,6 @@ CTF解説、開発中や開発したプロジェクトを是非下のリンク�
 
 ## Writeups / CTF解説
 [OFPPT-CTF Morocco 2022](ofppt2022/index.md)
+
+## My methodologies / 自分の手段など
+[Buffer Overflow](mymethods/bofmethod.md)
