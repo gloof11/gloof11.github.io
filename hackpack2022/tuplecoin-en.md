@@ -270,6 +270,7 @@ Because all the function does is append strings together, it doesn't matter in w
 So if we can generate a request which will generate a valid "auth_tag", then pass that request to the "commit" endpoint, with Tuco's account number in "from_acct" we'll get the flag!
 
 So let's generate a request that gives us a valid "auth_tag".
+
 ![](https://i.gyazo.com/f248c472f4ddae942f935046ad78d3ad.png)
 
 Now let's pass a request to the "commit" endpoint with Tuco's account number.
