@@ -64,14 +64,13 @@ When you try to go to an image in the images/ directory, it will try to unpickle
 
 What is pickling?
 
-If you're familiar with PHP, pickling is the same as serialize/unserialize. More info can be found in the docs below.
-(https://docs.python.org/3/library/pickle.html)
+If you're familiar with PHP, pickling is the same as serialize/unserialize. More info can be found in the [docs](https://docs.python.org/3/library/pickle.html)
 
 However, unpickling user input is very dangerous, as when something is unpickled, it is executed immediately.
 
 The game plan for attack is to write serialized data to a file, upload it, then access the file, causing our code to be executed on the server.
 
-For this I created a script to cat the flag.txt into an arbitrary file in the images directory. With special help from SecureFlag :) (https://knowledge-base.secureflag.com/vulnerabilities/unsafe_deserialization/unsafe_deserialization_python.html)
+For this I created a script to cat the flag.txt into an arbitrary file in the images directory. With special help from [SecureFlag](https://knowledge-base.secureflag.com/vulnerabilities/unsafe_deserialization/unsafe_deserialization_python.html) :)
 ```
 import pickle
 import os
