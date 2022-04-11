@@ -1,3 +1,4 @@
 title: Manwithaplan
 description: セキュリティ最高
-theme: jekyll-theme-cayman
+#theme: jekyll-theme-cayman
+remote_theme: lewismiddleton/cayman-dark
