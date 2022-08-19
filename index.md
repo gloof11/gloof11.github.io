@@ -1,5 +1,4 @@
-## Welcome to my blog!
-## ようこそ！
+## Welcome to my blog! // ようこそ！
 
 I put my CTF writeups, as well as any projects that I am working on or have worked on down below!
 
