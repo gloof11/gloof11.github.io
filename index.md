@@ -1,17 +1,20 @@
-## Welcome to my blog! // ようこそ！
+
+# Welcome to my blog! // ようこそ!
 
 I put my CTF writeups, as well as any projects that I am working on or have worked on down below!
 
 CTF解説、開発中や開発したプロジェクトを是非下のリンクで見てください！
 
 ## Writeups / CTF解説
+
 [OFPPT-CTF Morocco 2022](ofppt2022/index.md)
 
 [HackPack 2022](hackpack2022/index.md)
 
 [ShellCTF 2022](shellctf2022/index.md)
 
-[HackTheBox Writeups](htb/index.md)
+[HackTheBox Writeups/解説](htb/index.md)
 
 ## My methodologies / 自分の手段など
+
 [Buffer Overflow](mymethods/bofmethod.md)

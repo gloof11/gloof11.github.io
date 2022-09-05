@@ -3,7 +3,9 @@
 
 This machine seems like something that you could actually find in the wild. Mainly reusing creds, and exposing files you shouldn't
 
-# Enumeration
+このボックスでは、ネット上で本格的なサーバーに似てるので良い練習になりました。このボックスの大脆弱性は二つです。パスワード再設定とセンシティブなファイルを無意識に表示することです。
+
+# Enumeration・情報収集
 
 ## Rustscan
 
@@ -46,36 +48,36 @@ wp-admin                [Status: 301, Size: 311, Words: 20, Lines: 10, Duration:
 wp-content              [Status: 301, Size: 313, Words: 20, Lines: 10, Duration: 352ms]
 ```
 
-Maybe we're working with a Minecraft Server?
+もしかして、これがマインクラフトサーバーかな。
 
-# Foothold
+# Foothold・初期侵入
 
-There is a wordpress blog with one post on it, made by "notch".
+一つのポストが書かれたワードプレスブログがあります。そのポストの著者は"notch"らしい。
 
 ![blog post](https://i.gyazo.com/879e84274d1c5e06b581fd1b5201ef1d.png)
 
-I tried to login anonymously with FTP with no avail. But when I tried "notch" it had some delay, signaling that notch is a potential user.
+anonymous FTPログインしようとしましたがアクセスできませんでした。しかし、ユーザーネームを"notch"に設定したらサーバーからの返事には少し遅れたので、"notch"はユーザーとして可能だとわかりました。
 
-Checking the "/plugins" folder, we find a file called BlockyCore.jar.
+"/plugins"フォルダーを見て、"BlockyCore.jar"っていうファイルが見つかりました。
 
 ![blocky core](https://i.gyazo.com/ca69cbd256bcce587e55176d947770f8.png)
 
-Decompiling the .jar file reveals the sql db credentials.
+"BlockyCore.jar"をデコンパイルするとmysqlデーターベースのユーザーとパスワードを発見した！
 
 ![sql creds](https://i.gyazo.com/a7ca9c98ed326817ea3be1b0f7f31ccc.png)
 
-FTPing with the username "notch" and the password we get, we find the user flag!
+"notch"と".jar"ファイルからもらったパスワードを使ってFTPとSSHができました。
+
+そしてuserフラグゲット！
 
 ```bash
 drwxrwxr-x   7 notch    notch        4096 Jul  3  2017 minecraft
 -r--------   1 notch    notch          33 Sep  4 23:15 user.txt
 ```
 
-It also doubles as the ssh login.
-
 # Root
 
-Getting root was trivial
+Rootは簡単でした。
 
 ```bash
 notch@Blocky:~$ sudo -l
@@ -99,4 +101,4 @@ drwx------  2 root root 4096 Jun  7 02:47 .cache
 root@Blocky:/root# cat root.txt
 ```
 
-Thanks for reading! :D
+この解説を読んでくれてありがとうございます！　:D
