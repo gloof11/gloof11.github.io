@@ -134,7 +134,7 @@ ftp> exit
 
 ![PRTG Network Monitor](https://i.gyazo.com/0dc803cbd9f2852ecd223bc55083cc60.png)
 
-PRTGのデフォルトユーザーネームとパスワードは無理だったけど![このレディットポースト](https://www.reddit.com/r/sysadmin/comments/835dai/prtg_exposes_domain_accounts_and_passwords_in/) を読んで、このディレクトリーはみつかりました：
+PRTGのデフォルトユーザーネームとパスワードは無理だったけど[このレディットポースト](https://www.reddit.com/r/sysadmin/comments/835dai/prtg_exposes_domain_accounts_and_passwords_in/)を読んで、このディレクトリーはみつかりました：
 
 ```bash
 /ProgramData/Paessler/PRTG Network Monitor

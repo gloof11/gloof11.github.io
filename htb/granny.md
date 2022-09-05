@@ -54,7 +54,7 @@ images                  [Status: 301, Size: 148, Words: 9, Lines: 2, Duration: 6
 
 # Foothold & Root
 
-I googled Microsoft IIS 6.0 vulnerabilities and found ![this](https://www.trendmicro.com/en_us/research/17/c/iis-6-0-vulnerability-leads-code-execution.html) article by TrendMicro about a vulnerability in Webdav in IIS 6.0.
+I googled Microsoft IIS 6.0 vulnerabilities and found [this](https://www.trendmicro.com/en_us/research/17/c/iis-6-0-vulnerability-leads-code-execution.html) article by TrendMicro about a vulnerability in Webdav in IIS 6.0.
 
 Curious, I checked metasploit for any modules and found "windows/iis/iis_webdav_upload_asp".
 

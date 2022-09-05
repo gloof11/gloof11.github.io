@@ -54,7 +54,7 @@ images                  [Status: 301, Size: 148, Words: 9, Lines: 2, Duration: 6
 
 # Foothold・初期侵入 & Root
 
-Microsoft IIS 6.0の脆弱性をググってみると、TrendMicroに書かれた ![記事　(英語のみ！)](https://www.trendmicro.com/en_us/research/17/c/iis-6-0-vulnerability-leads-code-execution.html)が出てきました。
+Microsoft IIS 6.0の脆弱性をググってみると、TrendMicroに書かれた [記事(英語のみ！)](https://www.trendmicro.com/en_us/research/17/c/iis-6-0-vulnerability-leads-code-execution.html) が出てきました。
 
 偶然metasploitでmoduleを検索すると"windows/iis/iis_webdav_upload_asp"のmoduleが発見した。
 
@@ -80,8 +80,6 @@ meterpreter > getuid
 Microsoft Windows [Version 5.2.3790]
 (C) Copyright 1985-2003 Microsoft Corp.
 ```
-
-Version 5.2 seems pretty old so I ran it through Windows-Exploit-Suggestor.
 
 Windowsバージョン5.2はかなり古くてwindows-exploit-suggesterっていうスクリプト起動して、MS15-051 - ClientCopyImageっていうエキスプロイトは最初でました。
 
