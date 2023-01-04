@@ -1,5 +1,5 @@
 ---
-title: /
+title: /home
 layout: home
 permalink: /
 ---
@@ -9,4 +9,7 @@ permalink: /
 I put my CTF writeups, as well as any projects that I am working on here!
 
 [Writeups](/writeups)
+
 [Projects](/projects)
+
+[Music](/music)

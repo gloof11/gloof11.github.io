@@ -6,8 +6,8 @@
   --base-color: #DBDBDB;
   --border: dashed 1px rgba(219, 219, 219, 0.9);
   --selection-background: rgba(219, 219, 219, 0.99);
-  --selection-text: #000;
-  --background-color: #000;
+  --selection-text: rgb(26, 26, 26);
+  --background-color: rgb(26, 26, 26);
   --text-color: var(--base-color);
   --placeholder-color: var(--base-color);
   --link-color: var(--base-color);
@@ -42,14 +42,14 @@ body {
   margin: 0 auto;
   padding: 0;
   font-family: "Space Mono", monospace;
-  font-size: 15.5px;
+  font-size: 16.5px;
   color: var(--text-color);
   text-align: left;
   line-height: 1.5 !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 15.5px;
+  font-size: 16.5px;
   margin: 0px;
   margin-top: 22px;
   font-weight: bold;
@@ -73,15 +73,15 @@ a:hover {
 
 @media only screen and (max-device-width: 500px) {
   * {
-    font-size: 15px !important;
+    font-size: 16px !important;
   }
 }
 /**
  * Layout
  */
 .container {
-  width: 90%;
-  max-width: 600px;
+  width: 50%;
+  max-width: 100%;
   margin-right: auto;
   margin-left: auto;
 }
@@ -113,6 +113,14 @@ header p {
 
 footer {
   margin-bottom: 20px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border: 3px solid black;
 }
 
 /**
@@ -195,7 +203,7 @@ input[type=text], select, textarea {
   background-color: var(--background-color);
   color: var(--text-color);
   caret-color: var(--text-color);
-  font-size: 15.5px;
+  font-size: 16.5px;
   font-family: "Space Mono", monospace;
   line-height: 1.5;
 }
@@ -218,7 +226,7 @@ input, select, textarea, textarea::-webkit-input-placeholder {
 }
 
 input[type=submit] {
-  font-size: 15.5px;
+  font-size: 16.5px;
   font-family: "Space Mono", monospace;
   line-height: 1.5;
   cursor: pointer;
@@ -252,12 +260,12 @@ figure.highlight {
 }
 
 pre {
-  background-color: darkslategray;
-  border: 2px dotted lightgray;
+  background-color: rgb(17, 58, 77);
+  border: 3px solid black;
   padding: 10px;
   margin: 0;
   overflow: auto;
-  font-size: 13px;
+  font-size: 14px;
   color: white;
   line-height: 1.7 !important;
   font-family: "Space Mono", monospace !important;

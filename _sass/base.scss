@@ -5,11 +5,11 @@
  * Style variables
  */
 $base-font-family:     'Space Mono', monospace !default;
-$base-font-size:       15.5px !default;
-$mobile-font-size:     15px !default;
+$base-font-size:       16.5px !default;
+$mobile-font-size:     16px !default;
 $base-line-height:     1.5 !default;
-$container-width:      90% !default;
-$container-max-width:  600px !default;
+$container-width:      50% !default;
+$container-max-width:  100% !default;
 
 /**
  * Global
@@ -30,6 +30,7 @@ footer { color: var(--text-color);  border-top: var(--border);  margin: 20px aut
 header { margin-top: 25px;  margin-bottom: 10px; }
 header p { text-align: left;  margin: 0; }
 footer { margin-bottom: 20px; }
+img { display: block; margin-left: auto; margin-right: auto; width: 100%; border: 3px solid black; }
 
 /**
  * Highlight/Markup
@@ -72,7 +73,7 @@ textarea { vertical-align: top; }
  */
 .lineno { color: var(--code-color-1); margin-right: 15px; }
 figure.highlight { margin: 5px 0; }
-pre { background-color: darkslategray;  border: 2px dotted lightgray;  padding: 10px;  margin: 0;  overflow:auto;  font-size: $base-font-size - 2.5;  color: white;  line-height: 1.7 !important;  font-family: $base-font-family !important; }
+pre { background-color: rgb(17, 58, 77);  border: 3px solid black;  padding: 10px;  margin: 0;  overflow:auto;  font-size: $base-font-size - 2.5;  color: white;  line-height: 1.7 !important;  font-family: $base-font-family !important; }
 .highlight .hll { background-color: var(--code-color-2); }
 .highlight .c { color: var(--code-color-1); font-style: italic } /* Comment */
 .highlight .err { color: var(--code-color-3); background-color: var(--code-color-4); } /* Error */
