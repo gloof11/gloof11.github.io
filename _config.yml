@@ -1,4 +1,18 @@
-title: Gloof
-description: 俺のゴミ箱
-#theme: jekyll-theme-cayman
-remote_theme: lewismiddleton/cayman-dark
+# Site settings
+
+#google_analytics: UA-NNNNNNNN-N
+
+title: "gloof's hideout"
+
+header_pages:
+  - index.md
+  - writeups.md
+  - projects.md
+
+footer: 'follow me on <a href="https://twitter.com/gloof11">twitter</a>'
+
+style: dark
+#listen_for_clients_preferred_style: true # true or false (default)
+
+plugins:
+  - jekyll-seo-tag
