@@ -14,3 +14,6 @@ permalink: /writeups
 
 # Hack The Box
 <br/>
+
+[Challenges](/writeups/htb/challs)
+[Box](/writeups/htb/boxes)
