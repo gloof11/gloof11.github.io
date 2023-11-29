@@ -5,6 +5,3 @@ permalink: /projects
 ---
 
 # Projects
-<br/>
-
-[NES Music Player](/projects/nesmusicplayer)
