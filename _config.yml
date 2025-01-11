@@ -4,8 +4,9 @@ title: "gloof's hideout"
 
 header_pages:
   - index.md
-  - writeups.md
+  - blog.md
   - projects.md
+  - writeups.md
   - music.md
 
 style: dark
