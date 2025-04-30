@@ -13,6 +13,7 @@ This site is currently being translated by yours truly, so some portions may onl
 If you'd like to see what I am currently hosting, click [here!](/blog/what-i-host)
 <br />
 ## Articles
+- [ 2025-4-30 ] [I love Pocketbase](/blog/i-love-pocketbase)
 - [ 2025-1-28 ] [しまてくハブ：　ダイスウェア](/blog/shima-tech-hub-diceware)
 - [ 2025-1-11 ] [What I Host](/blog/what-i-host)
 
