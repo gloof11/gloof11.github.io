@@ -16,4 +16,4 @@ permalink: /writeups
 <br/>
 
 [Challenges](/writeups/htb/challs)
-[Box](/writeups/htb/boxes)
+[Boxes](/writeups/htb/boxes)
