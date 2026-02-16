@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class="bg-gruvbox-bg text-gruvbox-fg font-mono flex flex-col text-sm selection:bg-gruvbox-gray selection:text-gruvbox-bg">
+  <header>
+    {{ partial "header.html" . }}
+  </header>
+  <main class="flex-1">
+    {{ partial "sidebar.html" . }}
+    <div class="md:ml-64 mt-8">
+      {{ block "main" . }}{{ end }}
+    </div>
+  </main>
+  <footer>
+    {{ partial "footer.html" . }}
+  </footer>
+</body>
+</html>

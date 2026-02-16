@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build-css": "sass assets/scss/styles.scss:assets/css/main.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  }
+}

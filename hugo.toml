@@ -1,0 +1,19 @@
+baseURL = 'https://gloof.dev'
+languageCode = 'en-us'
+title = "Gloof's Hideout"
+theme = 'nv-chad-theme'
+
+[menus]
+  [[menus.main]]
+    name = 'posts'
+    pageRef = '/posts'
+    weight = 10
+
+  #[[menus.main]]
+  #  name = 'tags'
+  #  pageRef = '/tags'
+  #  weight = 20
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'

@@ -1,0 +1,16 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-US'
+title = 'My New Hugo Site'
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = '0.146.0'
+
+[markup]
+  [markup.highlight]
+    lineNos = true
+    lineNumbersInTable = true
+
+[build]
+  writeStats = true

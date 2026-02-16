@@ -1,0 +1,15 @@
+<div class="fixed top-0 left-0 h-screen mt-8 w-64 bg-gruvbox-bg-dark flex-col border-r border-gruvbox-bg-light hidden md:flex">
+    <div class="p-3 text-gruvbox-blue font-bold uppercase text-xs tracking-wider mb-2">Explorer</div>
+    <div class="px-2 space-y-1 overflow-y-auto no-scrollbar">
+        <a class="flex items-center gap-2 text-gruvbox-blue hover:text-gruvbox-fg font-bold cursor-pointer
+          {{if page.IsHome }}
+            bg-gruvbox-bg-light text-gruvbox-fg font-bold
+          {{ end }}"
+          href="/">
+              <i class="fa-solid fa-folder-open"></i>/home
+        </a>
+        <div class="pl-4 flex flex-col gap-1 mt-1">
+            {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+        </div>
+    </div>
+</div>

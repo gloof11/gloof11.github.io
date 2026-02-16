@@ -1,0 +1,11 @@
+{{ define "main" }}
+    <div class="flex-1 pt-4 px-16 font-medium leading-relaxed">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+    <div class="pt-12">
+      {{ range .Pages }}
+        <h2><a class="text-gruvbox-yellow" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

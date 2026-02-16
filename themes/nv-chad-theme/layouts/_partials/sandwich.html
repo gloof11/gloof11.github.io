@@ -1,0 +1,77 @@
+<div id="mobile-menu" class="hidden transition duration-300 fixed top-8 left-0 w-full bg-gruvbox-bg border-b border-gruvbox-bg-light shadow-xl z-40">
+    <div class="flex flex-col py-2">
+        <a href="/" class="px-4 py-2 text-gruvbox-gray hover:bg-gruvbox-bg-light hover:text-gruvbox-fg flex items-center gap-2
+          {{if page.IsHome }}
+            bg-gruvbox-bg-light text-gruvbox-fg font-bold
+          {{ end }}"
+        >
+            /home 
+        </a>
+        {{- /*
+        Renders a menu for the given menu ID.
+
+        @context {page} page The current page.
+        @context {string} menuID The menu ID.
+
+        @example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+        */}}
+
+        {{- $page := .page }}
+        {{- $menuID := .menuID }}
+
+        {{- with index site.Menus $menuID }}
+          <nav>
+            <ul>
+              {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+            </ul>
+          </nav>
+        {{- end }}
+
+        {{- define "_partials/inline/menu/walk.html" }}
+          {{- $page := .page }}
+          {{- range .menuEntries }}
+            {{- $attrs := dict "href" .URL }}
+            {{- if $page.IsMenuCurrent .Menu . }}
+              {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+            {{- else if $page.HasMenuCurrent .Menu .}}
+              {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+            {{- end }}
+            {{- $name := .Name }}
+            {{- with .Identifier }}
+              {{- with T . }}
+                {{- $name = . }}
+              {{- end }}
+            {{- end }}
+            <li>
+              <a class="px-4 py-2 text-gruvbox-gray hover:bg-gruvbox-bg-light hover:text-gruvbox-fg flex items-center gap-2
+              {{if $page.IsMenuCurrent .Menu . }}
+                bg-gruvbox-bg-light text-gruvbox-fg font-bold
+              {{ end }}"
+                {{- range $k, $v := $attrs }}
+                  {{- with $v }}
+                    {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+                  {{- end }}
+                {{- end -}}
+              >/{{ $name }}</a>
+              {{- with .Children }}
+                <ul>
+                  {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+                </ul>
+              {{- end }}
+            </li>
+          {{- end }}
+        {{- end }}
+
+        <!--
+        <a href="/" class="px-4 py-2 text-gruvbox-gray hover:bg-gruvbox-bg-light hover:text-gruvbox-fg flex items-center gap-2">
+            <i class="fa-solid fa-house text-gruvbox-blue"></i> Home
+        </a>
+        <a href="/about" class="px-4 py-2 text-gruvbox-gray hover:bg-gruvbox-bg-light hover:text-gruvbox-fg flex items-center gap-2">
+            <i class="fa-solid fa-user text-gruvbox-yellow"></i> About Me
+        </a>
+        <a href="/projects" class="px-4 py-2 text-gruvbox-gray hover:bg-gruvbox-bg-light hover:text-gruvbox-fg flex items-center gap-2">
+            <i class="fa-solid fa-code text-gruvbox-green"></i> Projects
+        </a>
+        -->
+    </div>
+</div>

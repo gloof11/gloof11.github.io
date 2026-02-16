@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@layer base {
+  h1 {
+    @apply text-4xl font-bold tracking-tight text-gruvbox-fg; 
+  }
+  
+  h2 {
+    @apply text-2xl font-semibold text-gruvbox-fg mt-8 mb-4;
+  }
+  
+  h3 {
+    @apply text-xl font-semibold text-gruvbox-fg;
+  }
+  
+  .highlight pre {
+    @apply border-4 border-gruvbox-orange rounded-md border-double m-4 p-4 whitespace-pre-wrap break-all;
+  }
+  
+  img {
+    @apply m-4 p-4;
+  }
+  
+  a {
+    @apply text-gruvbox-aqua underline;
+  }
+}
+
+@theme {
+  /* Fonts */
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* Gruvbox Dark Colors */
+  --color-gruvbox-bg: #282828;
+  --color-gruvbox-bg-dark: #1d2021;
+  --color-gruvbox-bg-light: #3c3836;
+  --color-gruvbox-fg: #ebdbb2;
+  --color-gruvbox-gray: #928374;
+  --color-gruvbox-red: #fb4934;
+  --color-gruvbox-green: #b8bb26;
+  --color-gruvbox-yellow: #fabd2f;
+  --color-gruvbox-blue: #83a598;
+  --color-gruvbox-purple: #d3869b;
+  --color-gruvbox-aqua: #8ec07c;
+  --color-gruvbox-orange: #fe8019;
+}

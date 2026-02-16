@@ -1,0 +1,18 @@
+<div class="fixed h-8 bg-gruvbox-bg-dark flex items-center w-full select-none">
+    <div class="h-full bg-gruvbox-bg flex items-center justify-between px-3 border-t-2 border-gruvbox-blue gap-2">
+        <i class="text-gruvbox-yellow"></i>
+        <span class="text-gruvbox-fg font-bold">{{ site.Title }}</span>
+        <i class="fa-solid fa-circle text-[6px] text-gruvbox-fg ml-1"></i>
+    </div>
+
+    <div class="flex-1 bg-gruvbox-bg_dark"></div>
+
+    <button id="mobile-menu-btn" class="md:hidden h-full px-4 text-gruvbox-blue hover:bg-gruvbox-bg-light hover:text-gruvbox-fg transition-colors border-l border-gruvbox-bg-light">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="not-md:hidden px-3 bg-gruvbox-bg_dark text-gruvbox-blue text-xs">
+        <i class="fa-solid fa-server mr-1"></i> LSP: Ready
+    </div>
+</div>
+{{ partial "sandwich.html" (dict "menuID" "main" "page" .) }}

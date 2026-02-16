@@ -1,0 +1,23 @@
+{{ define "main" }}
+    <div class="flex-1 mt-4 mx-16 font-medium leading-relaxed">
+      <h1>{{ .Title }}</h1>
+      {{ .Content }}
+      <div class="mt-12">
+        {{ range .Pages }}
+          <div class="mt-12">
+              <div class="md:flex md:justify-between md:items-baseline">
+                <h2>
+                  <a class="text-gruvbox-yellow" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                </h2>
+                <h3 class="not-md:text-sm">
+                  {{ $dateHuman := .Date | time.Format ":date_long" }}
+                  Posted: {{ $dateHuman }}
+                </h3>
+              </div>
+            {{ .Summary }}
+            </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+{{ end }}
