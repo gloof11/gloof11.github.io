@@ -23,7 +23,7 @@ Use Terraform to provision the necessary cloud VM's, firewalls, and VPCs -> Use 
 
 ## Infrastructure Overview
 
-![Hi](https://gloof.dev/assets/homelab-cloud-migration/layout.png)
+![](layout.png)
 
 So it's pretty simple.
 
