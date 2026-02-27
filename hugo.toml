@@ -3,11 +3,22 @@ languageCode = 'en-us'
 title = "Gloof's Hideout"
 theme = 'nv-chad-theme'
 
+[markup]
+  ignoreLogs = ['warning-goldmark-raw-html']
+[markup.goldmark]
+[markup.goldmark.renderer]
+  unsafe = true
+
 [menus]
   [[menus.main]]
     name = 'posts'
     pageRef = '/posts'
     weight = 10
+
+  [[menus.main]]
+    name = 'resume'
+    pageRef = '/resume'
+    weight = 20
 
   #[[menus.main]]
   #  name = 'tags'
