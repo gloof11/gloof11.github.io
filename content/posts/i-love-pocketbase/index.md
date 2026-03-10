@@ -115,3 +115,7 @@ With this I can then populate my table!
 ![](weights.png)
 
 So yeah, PocketBase has become my new love. It has greater support for user auth (including MFA), backups, file uploads, and batch uploading, so if you're working on a smaller project or need to make a mock, I highly recommend!
+
+2025-03-10 UPDATE: I finally open-sourced Gainsmith, so give it a try if you'd like!
+
+https://github.com/gloof11/Gainsmith
