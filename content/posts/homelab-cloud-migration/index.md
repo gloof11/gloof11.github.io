@@ -3,6 +3,7 @@ date = '2025-10-28'
 draft = false 
 title = 'Homelab Cloud Migration'
 summary = "Getting everything from one place to another"
+tags = ['homelab', 'cloud-migration', 'linode', 'terraform', 'ansible', 'docker', 'vpn', 'caddy', 'dns']
 +++
 
 I just got finished moving back to the US from Japan, and I've come to rely on my homelab for essentials (Git, Cryptpad, File Sharing, Immich, etc.)

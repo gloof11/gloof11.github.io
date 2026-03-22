@@ -3,6 +3,7 @@ date = '2025-01-11'
 draft = false 
 title = 'What I Host'
 summary = 'What I have in my homelab'
+tags = ['homelab', 'services']
 +++
 
 Starting in beginning of 2023, I've decided to migrate all of my cloud services/services that are hosted somewhere else on-prem (my house). My motivation for this was to learn more about how to securely host services, cut down on my subscription bill, and gain some more freedom over my digital life. From starting with 2 old laptops running ubuntu server, to a proper server, a Raspberry Pi for NAS storage, and automated cloud backups, I'd say I've come a pretty far way. Below is my proverbial stack as well as what applications I host on there.
@@ -46,7 +47,7 @@ TP-Link TL-SG116E
 
 **Gitea** - for Source Control & CI/CD 
 
-**FreeNAS** - for Home NAS 
+**TrueNAS** - for Home NAS 
 
 ## Self-Hosted services
 ----------

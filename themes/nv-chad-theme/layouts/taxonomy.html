@@ -4,7 +4,9 @@
     {{ .Content }}
     <div class="pt-12">
       {{ range .Pages }}
-        <h2><a class="text-gruvbox-yellow" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+      <i>
+        <h3><a class="text-gruvbox-aqua" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+      </i>
       {{ end }}
     </div>
   </div>

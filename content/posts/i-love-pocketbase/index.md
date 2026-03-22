@@ -3,6 +3,7 @@ date = '2025-04-30'
 draft = false
 title = 'I Love PocketBase'
 summary = "Using PocketBase to build apps quick"
+tags = ['pocketbase', 'vuejs']
 +++
 
 I've been tracking all of my lifting progress using the notes app on my phone, and while that's held up for about a year, it really isn't able to help me track my progress.

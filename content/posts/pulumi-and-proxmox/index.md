@@ -3,6 +3,7 @@ date = '2026-02-24'
 draft = false 
 title = 'Pulumi and Proxmox'
 summary = 'Doing CI/CD with Pulumi and Proxmox'
+tags = ['pulumi', 'proxmox', 'ci-cd', 'iac', 'ansible', 'kubernetes', 'python']
 +++
 
 It's time to retire my old gaming laptop. I bought this laptop before I shipped off for basic military training (circa September 2018), and it has served me well. In the past I've had bad experiences with them, but I can say that the ASUS FX504 was a solid laptop for its time. It has a Core i7-8750H, 16GB RAM, and a GTX 1060 Mobile. However, she's shown her age, the trackpad & keyboard barely works, and the frame around the screen is bending, and feels like it's going to fall off. If you look at it from the side you can actually see where the plastic is separating lol.

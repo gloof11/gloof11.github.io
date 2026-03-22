@@ -17,7 +17,7 @@ For a given taxonomy, renders a list of terms assigned to the page.
     <ul class="flex pt-2 gap-3">
       {{- range . }}
         <i>
-          <li><a class="text-gruvbox-purple" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+          <a class="text-gruvbox-purple" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
         </i>
       {{- end }}
     </ul>

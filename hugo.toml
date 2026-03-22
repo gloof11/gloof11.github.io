@@ -20,10 +20,10 @@ theme = 'nv-chad-theme'
     pageRef = '/resume'
     weight = 20
 
-  #[[menus.main]]
-  #  name = 'tags'
-  #  pageRef = '/tags'
-  #  weight = 20
+  [[menus.main]]
+   name = 'tags'
+   pageRef = '/tags'
+   weight = 30
 
 [caches]
   [caches.images]
